@@ -1,5 +1,11 @@
 {
   "AppSyncApiName": "petstore",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authpetstoref594298b",
+      "Outputs.UserPoolId"
+    ]
+  }
 }
