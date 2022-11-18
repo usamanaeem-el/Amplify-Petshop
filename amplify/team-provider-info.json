@@ -13,7 +13,14 @@
     },
     "categories": {
       "auth": {
-        "petstoref594298b": {}
+        "petstoref594298b": {},
+        "true": {}
+      },
+      "function": {
+        "AdminQueriesd16094d3": {
+          "deploymentBucketName": "amplify-petstore-dev-111650-deployment",
+          "s3Key": "amplify-builds/AdminQueriesd16094d3-6f53575245576f6c4667-build.zip"
+        }
       }
     }
   }

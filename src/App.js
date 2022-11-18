@@ -1,15 +1,23 @@
 import '@aws-amplify/ui-react/styles.css';
-import { withAuthenticator, Button, View } from '@aws-amplify/ui-react';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './component/Navbar/Navbar';
 import Petstore from './component/Petstore/Petstore';
+import AdminAction from './component/Admin_Action/AdminAction';
+import { ADMIN_ACTION, PETSTORE } from '../src/shared/constants/pageRoutes';
 
-function App({ signOut }) {
+function App() {
   return (
-    <View className='App'>
-      <Navbar />
-      <Petstore/>
-      {/* <Button onClick={signOut}>Sign Out</Button> */}
-    </View>
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          {/* Shared Persisted Routes  */}
+          <Route path={PETSTORE} element={<Petstore />} />
+          <Route path={ADMIN_ACTION} element={<AdminAction />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

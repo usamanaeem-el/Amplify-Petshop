@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
-const Navbar = () => {
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import { ADMIN_ACTION, PETSTORE } from '../../shared/constants/pageRoutes';
+import { useNavigate } from 'react-router-dom';
+const Navbar = ({ signOut }) => {
   const [nav, setNav] = useState(false);
+  const navigate = useNavigate();
   const handleClick = () => {
     setNav(!nav);
   };
@@ -12,10 +16,29 @@ const Navbar = () => {
         <h1>PetStore</h1>
       </div>
       <ul className='hidden md:flex'>
-        <li>Home</li>
-        <li>New Arrival</li>
+        <li>
+          <button
+            onClick={() => {
+              navigate(PETSTORE);
+            }}
+          >
+            Home
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => {
+              navigate(ADMIN_ACTION);
+            }}
+          >
+            Admin
+          </button>
+        </li>
         <li>Contact</li>
         <li>About Us</li>
+        <li>
+          <button onClick={signOut}>Sign Out</button>
+        </li>
       </ul>
       <div onClick={handleClick} className='md:hidden z-10'>
         {nav ? <AiOutlineClose size={20} /> : <HiOutlineMenuAlt4 size={20} />}
@@ -29,15 +52,34 @@ const Navbar = () => {
         }
       >
         <ul>
-          <h1>PetStore</h1>
-          <li className='border-b'>Home</li>
-          <li className='border-b'>New Arrival</li>
+          <h1>Pet Store</h1>
+          <li className='border-b'>
+            <button
+              onClick={() => {
+                navigate(PETSTORE);
+              }}
+            >
+              Home
+            </button>
+          </li>
+          <li className='border-b'>
+            <button
+              onClick={() => {
+                navigate(ADMIN_ACTION);
+              }}
+            >
+              Admin
+            </button>
+          </li>
           <li className='border-b'>Contact</li>
           <li className='border-b'>About Us</li>
+          <li>
+            <button onClick={signOut}>Sign Out</button>
+          </li>
         </ul>
       </div>
     </div>
   );
 };
 
-export default Navbar;
+export default withAuthenticator(Navbar);
