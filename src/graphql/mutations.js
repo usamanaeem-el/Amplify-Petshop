@@ -1,51 +1,165 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createPetstore = /* GraphQL */ `
-  mutation CreatePetstore(
-    $input: CreatePetstoreInput!
-    $condition: ModelPetstoreConditionInput
+export const createBuyer = /* GraphQL */ `
+  mutation CreateBuyer(
+    $input: CreateBuyerInput!
+    $condition: ModelBuyerConditionInput
   ) {
-    createPetstore(input: $input, condition: $condition) {
+    createBuyer(input: $input, condition: $condition) {
       id
       name
-      description
       age
-      animalType
+      pets {
+        items {
+          id
+          name
+          description
+          age
+          animalType
+          createdAt
+          updatedAt
+          buyerPetsId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
   }
 `;
-export const updatePetstore = /* GraphQL */ `
-  mutation UpdatePetstore(
-    $input: UpdatePetstoreInput!
-    $condition: ModelPetstoreConditionInput
+export const updateBuyer = /* GraphQL */ `
+  mutation UpdateBuyer(
+    $input: UpdateBuyerInput!
+    $condition: ModelBuyerConditionInput
   ) {
-    updatePetstore(input: $input, condition: $condition) {
+    updateBuyer(input: $input, condition: $condition) {
       id
       name
-      description
       age
-      animalType
+      pets {
+        items {
+          id
+          name
+          description
+          age
+          animalType
+          createdAt
+          updatedAt
+          buyerPetsId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
   }
 `;
-export const deletePetstore = /* GraphQL */ `
-  mutation DeletePetstore(
-    $input: DeletePetstoreInput!
-    $condition: ModelPetstoreConditionInput
+export const deleteBuyer = /* GraphQL */ `
+  mutation DeleteBuyer(
+    $input: DeleteBuyerInput!
+    $condition: ModelBuyerConditionInput
   ) {
-    deletePetstore(input: $input, condition: $condition) {
+    deleteBuyer(input: $input, condition: $condition) {
+      id
+      name
+      age
+      pets {
+        items {
+          id
+          name
+          description
+          age
+          animalType
+          createdAt
+          updatedAt
+          buyerPetsId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createPet = /* GraphQL */ `
+  mutation CreatePet(
+    $input: CreatePetInput!
+    $condition: ModelPetConditionInput
+  ) {
+    createPet(input: $input, condition: $condition) {
       id
       name
       description
       age
       animalType
+      buyer {
+        id
+        name
+        age
+        pets {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
+      buyerPetsId
+    }
+  }
+`;
+export const updatePet = /* GraphQL */ `
+  mutation UpdatePet(
+    $input: UpdatePetInput!
+    $condition: ModelPetConditionInput
+  ) {
+    updatePet(input: $input, condition: $condition) {
+      id
+      name
+      description
+      age
+      animalType
+      buyer {
+        id
+        name
+        age
+        pets {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+      buyerPetsId
+    }
+  }
+`;
+export const deletePet = /* GraphQL */ `
+  mutation DeletePet(
+    $input: DeletePetInput!
+    $condition: ModelPetConditionInput
+  ) {
+    deletePet(input: $input, condition: $condition) {
+      id
+      name
+      description
+      age
+      animalType
+      buyer {
+        id
+        name
+        age
+        pets {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+      buyerPetsId
     }
   }
 `;
