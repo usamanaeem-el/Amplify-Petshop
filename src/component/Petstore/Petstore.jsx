@@ -23,7 +23,7 @@ const Petstore = () => {
     };
     try {
       await API.graphql({
-        query: mutations.createPetstore,
+        query: mutations.createPet,
         variables: { input: petDetails },
         authMode: 'AMAZON_COGNITO_USER_POOLS',
       });
@@ -36,10 +36,10 @@ const Petstore = () => {
   const fetchdata = async () => {
     try {
       const pets = await API.graphql({
-        query: queries.listPetstores,
+        query: queries.listPets,
         // authMode: 'API_KEY',
       });
-      const petsList = pets.data.listPetstores.items;
+      const petsList = pets.data.listPets.items;
       setData(petsList);
       console.log({ petsList });
     } catch (error) {
@@ -53,7 +53,7 @@ const Petstore = () => {
     };
     try {
       await API.graphql({
-        query: mutations.deletePetstore,
+        query: mutations.deletePet,
         variables: { input: deletePets },
         authMode: 'AMAZON_COGNITO_USER_POOLS',
       });
