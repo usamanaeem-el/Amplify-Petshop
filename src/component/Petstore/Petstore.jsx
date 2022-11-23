@@ -41,7 +41,7 @@ const Petstore = () => {
       });
       const petsList = pets.data.listPets.items;
       setData(petsList);
-      console.log({ petsList });
+      // console.log({ petsList });
     } catch (error) {
       throw Error(error);
     }

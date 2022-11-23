@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
-import { withAuthenticator } from '@aws-amplify/ui-react';
 import { ADMIN_ACTION, PETSTORE } from '../../shared/constants/pageRoutes';
 import { useNavigate } from 'react-router-dom';
-const Navbar = ({ signOut }) => {
+const Navbar = () => {
   const [nav, setNav] = useState(false);
   const navigate = useNavigate();
   const handleClick = () => {
@@ -36,9 +35,6 @@ const Navbar = ({ signOut }) => {
         </li>
         <li>Contact</li>
         <li>About Us</li>
-        <li>
-          <button onClick={signOut}>Sign Out</button>
-        </li>
       </ul>
       <div onClick={handleClick} className='md:hidden z-10'>
         {nav ? <AiOutlineClose size={20} /> : <HiOutlineMenuAlt4 size={20} />}
@@ -73,13 +69,10 @@ const Navbar = ({ signOut }) => {
           </li>
           <li className='border-b'>Contact</li>
           <li className='border-b'>About Us</li>
-          <li>
-            <button onClick={signOut}>Sign Out</button>
-          </li>
         </ul>
       </div>
     </div>
   );
 };
 
-export default withAuthenticator(Navbar);
+export default Navbar;
